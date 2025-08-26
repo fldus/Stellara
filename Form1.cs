@@ -16,5 +16,25 @@ namespace Stellara
         {
             InitializeComponent();
         }
+
+        private void 끝내기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void 운세기록보기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stellara정보보기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 사용방법보기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
