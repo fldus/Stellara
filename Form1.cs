@@ -35,7 +35,8 @@ namespace Stellara
 
         private void 사용방법보기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormUse form = new FormUse();
+            form.ShowDialog();
         }
     }
 }
