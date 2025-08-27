@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.파일ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.운세기록보기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,10 +38,12 @@
             this.stellara정보보기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.사용방법보기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.제목 = new System.Windows.Forms.Label();
-            this.안내멘트 = new System.Windows.Forms.Label();
-            this.btnResult = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnResult = new System.Windows.Forms.Button();
+            this.안내멘트 = new System.Windows.Forms.Label();
+            this.제목 = new System.Windows.Forms.Label();
+            this.tbTime = new System.Windows.Forms.TextBox();
+            this.tbCity = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -69,19 +72,19 @@
             // 운세기록보기ToolStripMenuItem
             // 
             this.운세기록보기ToolStripMenuItem.Name = "운세기록보기ToolStripMenuItem";
-            this.운세기록보기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.운세기록보기ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.운세기록보기ToolStripMenuItem.Text = "운세 기록 보기";
             this.운세기록보기ToolStripMenuItem.Click += new System.EventHandler(this.운세기록보기ToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(151, 6);
             // 
             // 끝내기ToolStripMenuItem
             // 
             this.끝내기ToolStripMenuItem.Name = "끝내기ToolStripMenuItem";
-            this.끝내기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.끝내기ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.끝내기ToolStripMenuItem.Text = "끝내기";
             this.끝내기ToolStripMenuItem.Click += new System.EventHandler(this.끝내기ToolStripMenuItem_Click);
             // 
@@ -97,19 +100,21 @@
             // stellara정보보기ToolStripMenuItem
             // 
             this.stellara정보보기ToolStripMenuItem.Name = "stellara정보보기ToolStripMenuItem";
-            this.stellara정보보기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.stellara정보보기ToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.stellara정보보기ToolStripMenuItem.Text = "Stellara 정보 보기";
             this.stellara정보보기ToolStripMenuItem.Click += new System.EventHandler(this.stellara정보보기ToolStripMenuItem_Click);
             // 
             // 사용방법보기ToolStripMenuItem
             // 
             this.사용방법보기ToolStripMenuItem.Name = "사용방법보기ToolStripMenuItem";
-            this.사용방법보기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.사용방법보기ToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.사용방법보기ToolStripMenuItem.Text = "사용 방법 보기";
             this.사용방법보기ToolStripMenuItem.Click += new System.EventHandler(this.사용방법보기ToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbCity);
+            this.groupBox1.Controls.Add(this.tbTime);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.btnResult);
             this.groupBox1.Controls.Add(this.안내멘트);
@@ -121,6 +126,36 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "사용자 입력";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
+            this.dateTimePicker1.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dateTimePicker1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(94, 117);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(394, 26);
+            this.dateTimePicker1.TabIndex = 5;
+            // 
+            // btnResult
+            // 
+            this.btnResult.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnResult.Location = new System.Drawing.Point(127, 292);
+            this.btnResult.Name = "btnResult";
+            this.btnResult.Size = new System.Drawing.Size(325, 50);
+            this.btnResult.TabIndex = 4;
+            this.btnResult.Text = "오늘의 운세 보기";
+            this.btnResult.UseVisualStyleBackColor = true;
+            // 
+            // 안내멘트
+            // 
+            this.안내멘트.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.안내멘트.Location = new System.Drawing.Point(11, 33);
+            this.안내멘트.Name = "안내멘트";
+            this.안내멘트.Size = new System.Drawing.Size(569, 256);
+            this.안내멘트.TabIndex = 3;
+            this.안내멘트.Text = resources.GetString("안내멘트.Text");
+            this.안내멘트.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // 제목
             // 
             this.제목.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -131,34 +166,21 @@
             this.제목.Text = "Stellara";
             this.제목.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // 안내멘트
+            // tbTime
             // 
-            this.안내멘트.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.안내멘트.Location = new System.Drawing.Point(11, 43);
-            this.안내멘트.Name = "안내멘트";
-            this.안내멘트.Size = new System.Drawing.Size(569, 256);
-            this.안내멘트.TabIndex = 3;
-            this.안내멘트.Text = "🌟 안녕하세요, 별들의 지혜가 담긴 당신의 특별한 운세를 만나보세요. 🌟\r\n\r\n먼저, 운세 분석을 위해 출생 년, 월, 일을 입력해 주세요.\r" +
-    "\n\r\n\r\n\r\n\r\n💫 보다 정확하고 심오한 운세 풀이를 원하시면, \r\n태어난 시각과 출생지(도시명)를 추가로 알려주세요.\r\n\r\n\r\n\r\n\r\n";
-            this.안내멘트.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tbTime.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbTime.Location = new System.Drawing.Point(267, 211);
+            this.tbTime.Name = "tbTime";
+            this.tbTime.Size = new System.Drawing.Size(167, 26);
+            this.tbTime.TabIndex = 6;
             // 
-            // btnResult
+            // tbCity
             // 
-            this.btnResult.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnResult.Location = new System.Drawing.Point(127, 302);
-            this.btnResult.Name = "btnResult";
-            this.btnResult.Size = new System.Drawing.Size(325, 50);
-            this.btnResult.TabIndex = 4;
-            this.btnResult.Text = "오늘의 운세 보기";
-            this.btnResult.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(95, 119);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(394, 26);
-            this.dateTimePicker1.TabIndex = 5;
+            this.tbCity.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbCity.Location = new System.Drawing.Point(267, 243);
+            this.tbCity.Name = "tbCity";
+            this.tbCity.Size = new System.Drawing.Size(167, 26);
+            this.tbCity.TabIndex = 7;
             // 
             // Form1
             // 
@@ -167,6 +189,7 @@
             this.ClientSize = new System.Drawing.Size(667, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.RightToLeftLayout = true;
@@ -174,6 +197,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,6 +218,8 @@
         private System.Windows.Forms.Label 안내멘트;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btnResult;
+        private System.Windows.Forms.TextBox tbTime;
+        private System.Windows.Forms.TextBox tbCity;
     }
 }
 
