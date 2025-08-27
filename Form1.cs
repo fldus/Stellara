@@ -29,7 +29,8 @@ namespace Stellara
 
         private void stellara정보보기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormAbout form = new FormAbout();
+            form.ShowDialog();
         }
 
         private void 사용방법보기ToolStripMenuItem_Click(object sender, EventArgs e)
