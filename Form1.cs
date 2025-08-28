@@ -24,7 +24,8 @@ namespace Stellara
 
         private void 운세기록보기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormHistory form = new FormHistory();
+            form.ShowDialog();
         }
 
         private void stellara정보보기ToolStripMenuItem_Click(object sender, EventArgs e)
