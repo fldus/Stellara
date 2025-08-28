@@ -39,5 +39,11 @@ namespace Stellara
             FormUse form = new FormUse();
             form.ShowDialog();
         }
+
+        private void btnResult_Click(object sender, EventArgs e)
+        {
+            FormResult form = new FormResult();
+            form.ShowDialog();
+        }
     }
 }

@@ -10,26 +10,16 @@ using System.Windows.Forms;
 
 namespace Stellara
 {
-    public partial class FormHistory : Form
+    public partial class FormResult : Form
     {
-        public FormHistory()
+        public FormResult()
         {
             InitializeComponent();
-        }
-
-        private void btnRe_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
