@@ -24,8 +24,16 @@ namespace Stellara
 
         private void 운세기록보기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormHistory form = new FormHistory();
-            form.ShowDialog();
+            FormHistory form = Application.OpenForms["FormHistory"] as FormHistory;
+            if (form != null)
+            {
+                form.Activate();
+            }
+            else
+            {
+                form = new FormHistory();
+                form.Show();
+            }
         }
 
         private void stellara정보보기ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,8 +44,16 @@ namespace Stellara
 
         private void 사용방법보기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormUse form = new FormUse();
-            form.ShowDialog();
+            FormUse form = Application.OpenForms["FormUse"] as FormUse;
+            if (form != null)
+            {
+                form.Activate();
+            }
+            else
+            {
+                form = new FormUse();
+                form.Show();
+            }
         }
 
         private void btnResult_Click(object sender, EventArgs e)
