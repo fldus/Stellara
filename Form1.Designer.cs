@@ -38,12 +38,12 @@
             this.stellara정보보기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.사용방법보기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.timePicker = new System.Windows.Forms.DateTimePicker();
             this.tbCity = new System.Windows.Forms.TextBox();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.btnResult = new System.Windows.Forms.Button();
             this.안내멘트 = new System.Windows.Forms.Label();
             this.제목 = new System.Windows.Forms.Label();
-            this.timePicker = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -126,6 +126,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "사용자 입력";
             // 
+            // timePicker
+            // 
+            this.timePicker.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.timePicker.Location = new System.Drawing.Point(267, 211);
+            this.timePicker.Name = "timePicker";
+            this.timePicker.ShowUpDown = true;
+            this.timePicker.Size = new System.Drawing.Size(167, 26);
+            this.timePicker.TabIndex = 8;
+            // 
             // tbCity
             // 
             this.tbCity.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -153,6 +163,7 @@
             this.btnResult.TabIndex = 4;
             this.btnResult.Text = "오늘의 운세 보기";
             this.btnResult.UseVisualStyleBackColor = true;
+            this.btnResult.Click += new System.EventHandler(this.btnResult_Click_1);
             // 
             // 안내멘트
             // 
@@ -173,15 +184,6 @@
             this.제목.TabIndex = 2;
             this.제목.Text = "Stellara";
             this.제목.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // timePicker
-            // 
-            this.timePicker.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timePicker.Location = new System.Drawing.Point(267, 211);
-            this.timePicker.Name = "timePicker";
-            this.timePicker.Size = new System.Drawing.Size(167, 26);
-            this.timePicker.TabIndex = 8;
             // 
             // Form1
             // 

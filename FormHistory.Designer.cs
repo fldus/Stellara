@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHistory));
             this.label2 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbHistory = new System.Windows.Forms.ListBox();
             this.btnRe = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -45,11 +45,11 @@
             this.label2.Text = "지난 운세 목록";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // listBox1
+            // lbHistory
             // 
-            this.listBox1.Font = new System.Drawing.Font("굴림", 10F);
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
+            this.lbHistory.Font = new System.Drawing.Font("굴림", 10F);
+            this.lbHistory.FormattingEnabled = true;
+            this.lbHistory.Items.AddRange(new object[] {
             "2025년 8월 28일 13시 00분 - 오늘은 당신의 불타는 열정이 새로운 시작에 유리하게 작용할 것입니다.",
             "2025년 8월 28일 13시 00분 - 오늘은 당신의 불타는 열정이 새로운 시작에 유리하게 작용할 것입니다.",
             "2025년 8월 28일 13시 00분 - 오늘은 당신의 불타는 열정이 새로운 시작에 유리하게 작용할 것입니다.",
@@ -58,12 +58,12 @@
             "2025년 8월 28일 13시 00분 - 오늘은 당신의 불타는 열정이 새로운 시작에 유리하게 작용할 것입니다.",
             "2025년 8월 28일 13시 00분 - 오늘은 당신의 불타는 열정이 새로운 시작에 유리하게 작용할 것입니다.",
             "2025년 8월 28일 13시 00분 - 오늘은 당신의 불타는 열정이 새로운 시작에 유리하게 작용할 것입니다."});
-            this.listBox1.Location = new System.Drawing.Point(17, 67);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(638, 303);
-            this.listBox1.TabIndex = 3;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.lbHistory.Location = new System.Drawing.Point(17, 67);
+            this.lbHistory.Name = "lbHistory";
+            this.lbHistory.ScrollAlwaysVisible = true;
+            this.lbHistory.Size = new System.Drawing.Size(638, 303);
+            this.lbHistory.TabIndex = 3;
+            this.lbHistory.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // btnRe
             // 
@@ -94,7 +94,7 @@
             this.ClientSize = new System.Drawing.Size(667, 450);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnRe);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lbHistory);
             this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormHistory";
@@ -106,7 +106,7 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbHistory;
         private System.Windows.Forms.Button btnRe;
         private System.Windows.Forms.Button btnClose;
     }

@@ -108,9 +108,9 @@
         #endregion
 
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label lbTitle;
-        private System.Windows.Forms.Label lbContent;
-        private System.Windows.Forms.Label lbDetail;
-        private System.Windows.Forms.Label lbDay;
+        public System.Windows.Forms.Label lbTitle;
+        public System.Windows.Forms.Label lbContent;
+        public System.Windows.Forms.Label lbDetail;
+        public System.Windows.Forms.Label lbDay;
     }
 }

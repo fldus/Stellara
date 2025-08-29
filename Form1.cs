@@ -11,6 +11,7 @@ using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace Stellara
 {
@@ -39,7 +40,7 @@ namespace Stellara
             }
             else
             {
-                form = new FormHistory();
+                form = new FormHistory(this);
                 form.Show();
             }
         }
@@ -64,7 +65,7 @@ namespace Stellara
             }
         }
 
-        private async void btnResult_Click(object sender, EventArgs e)
+        private async void btnResult_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -121,16 +122,47 @@ namespace Stellara
                  + $"이 정보를 바탕으로 아래의 형식에 맞춰 오늘의 운세를 한국어로 작성해 주세요. "
                  + $"운세 제목: 오늘의 운세 제목은 당신의 별자리와 가장 관련 깊은 행성을 포함해서 작성해줘. "
                  + $"오늘의 운세: 한 줄로 핵심 메시지를 요약해줘. "
-                 + $"운세 설명: 자세한 운세 해설과 함께 삶의 지혜나 조언을 담아서 작성해줘.";
+                 + $"운세 설명: 자세한 운세 해설과 함께 삶의 지혜나 조언을 담아서 작성해줘."
+                 + $"위 내용을 아래 형식으로 작성해 주세요. "
+                 + $"운세 제목|오늘의 한 줄 운세|운세 해설";
 
                 string fortune = await GetFortune(resultData);
 
+                // 운세 저장
+                var parts = fortune.Split('|');
+                string title = parts[0].Trim();
+                string content = parts[1].Trim();
+                string detail = parts[2].Trim();
+
+                SaveHistory($"{today}|{title}|{content}|{detail}");
+
+                // 운세 결과
+                FormResult form = new FormResult(title, today, content, detail);
+                form.ShowDialog();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"알 수 없는 오류가 발생했어요.\n{ex.Message}", "알 수 없는 오류",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void SaveHistory(string history)
+        {
+            try
+            {
+                string filename = "history.csv";
+                File.AppendAllText(filename, history + Environment.NewLine);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show($"권한 없음 오류 발생!\n{ex.Message}", "권한 없음");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"알 수 없는 오류 발생!\n{ex.Message}", "알 수 없는 오류");
+            }
+
         }
 
         private async Task<string> GetFortune(string resultData)
@@ -157,15 +189,27 @@ namespace Stellara
 
             // api 호출
             var res = await httpClient.SendAsync(request);
-            res.EnsureSuccessStatusCode();
-
             string content = await res.Content.ReadAsStringAsync();
 
-            var arr = JArray.Parse(content);
-            if(arr.Count > 0 && arr[0]["generated_text"] != null)
-                return arr[0]["generated_text"].ToString().Trim();
+            try
+            {
+                var arr = JArray.Parse(content);
+                if(arr.Count > 0 && arr[0]["generated_text"] != null)
+                    return arr[0]["generated_text"].ToString().Trim();
+            }
+            catch
+            {
+                var obj = JObject.Parse(content);
 
-            throw new Exception("운세를 생성하지 못했습니다.");
+                if (obj["generated_text"] != null)
+                    return obj["generated_text"].ToString().Trim();
+
+                if (obj["error"] != null)
+                    throw new Exception($"모델 에러: {obj["error"]}");
+            }
+            
+
+            throw new Exception("운세를 생성하지 못했습니다." + content);
         }
 
         private async Task<(double lat, double lon, double tz)> GetLocation(string city)
@@ -213,8 +257,8 @@ namespace Stellara
                 year = int.Parse(day[0]),
                 month = int.Parse(day[1].TrimStart('0')),
                 date = int.Parse(day[2].TrimStart('0')),
-                hours = int.Parse(time[0].TrimStart('0')),
-                minutes = int.Parse(time[1].TrimStart('0')),
+                hours = int.Parse(time[0]),
+                minutes = int.Parse(time[1]),
                 seconds = 0,
                 latitude = lat,
                 longitude = lon,
@@ -236,11 +280,16 @@ namespace Stellara
 
             // api 호출
             var res = await httpClient.SendAsync(request);
-            res.EnsureSuccessStatusCode();
 
             string content = await res.Content.ReadAsStringAsync();
+            var obj = JObject.Parse(content);
 
-            return JObject.Parse(content);
+            if (obj["message"] != null)   // 에러 메시지가 포함된 경우
+            {
+                throw new Exception($"Astrology API 에러: {obj["message"]}");
+            }
+
+            return obj;
         }
     }
 }

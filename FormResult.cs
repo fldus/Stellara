@@ -12,9 +12,13 @@ namespace Stellara
 {
     public partial class FormResult : Form
     {
-        public FormResult()
+        public FormResult(string title, string day, string content, string detail)
         {
             InitializeComponent();
+            lbTitle.Text = title;
+            lbDay.Text = day;
+            lbContent.Text = content;
+            lbDetail.Text = detail;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
