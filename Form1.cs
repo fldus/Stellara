@@ -89,6 +89,9 @@ namespace Stellara
                 string birthConstellation = await GetConstellation(birthDay, birthTime, lat, lon, tz);
 
                 // 현재 별자리 위치 구하기
+                string day = today.Split(' ')[0];
+                string time = today.Split(' ')[1];
+                string nowConstellation = await GetConstellation(day, time, lat, lon, tz);
 
                 // 오늘의 운세 
 
